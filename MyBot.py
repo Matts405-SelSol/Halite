@@ -28,7 +28,8 @@ while True:
     # You extract player metadata and the updated map metadata here for convenience.
     me = game.me
     game_map = game.game_map
-
+    map_cells = game_map._cells
+    log.debug(map_cells.__dict__.keys())
     # A command queue holds all the commands you will run this turn.
     command_queue = []
 
