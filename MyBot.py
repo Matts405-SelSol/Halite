@@ -12,6 +12,7 @@ logging.basicConfig(filename='bot.log', level=logging.DEBUG)
 log = logging
 
 
+<<<<<<< HEAD
 
 
 #Team created function
@@ -24,6 +25,27 @@ def compass_check(x, y):
 def deposit_cargo(ship):
     # matts tiny dick
     log.warning(ship.position)
+=======
+#Team created functions
+def deposit_cargo(ship,shipyard):
+    ship_x = ship.position.x
+    ship_y = ship.position.y
+    shipyard_x = shipyard.position.x
+    shipyard_y = shipyard.position.y
+
+    if shipyard_x > ship_x:
+        return 'east'
+    elif shipyard_x < ship_x:
+        return 'west'
+    elif shipyard_y > ship_y:
+        return 'north'
+    elif shipyard_y < ship_y:
+        return 'south'
+    else:
+        return "home sweet home"
+
+
+>>>>>>> 3df58bfd869e3358fdaacdf0e3fca09b051e4af6
 
 # This game object contains the initial game state.
 game = hlt.Game()
