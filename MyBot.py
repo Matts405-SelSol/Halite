@@ -12,7 +12,6 @@ logging.basicConfig(filename='bot.log', level=logging.DEBUG)
 log = logging
 
 
-<<<<<<< HEAD
 
 
 #Team created function
@@ -25,7 +24,8 @@ def compass_check(x, y):
 def deposit_cargo(ship):
     # matts tiny dick
     log.warning(ship.position)
-=======
+
+
 #Team created functions
 def deposit_cargo(ship,shipyard):
     ship_x = ship.position.x
