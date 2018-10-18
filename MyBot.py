@@ -16,31 +16,45 @@ log = logging
 def compass_check(x, y):
     game_map = game.game_map
     map_cells = game_map._cells
-    map_cell_north = map_cells[y+1][x]
-    map_cell_north = map_cell_north.halite_amount
-    map_cell_south = map_cells[y-1][x]
-    map_cell_south = map_cell_south.halite_amount
-    map_cell_east = map_cells[y][x+1]
-    map_cell_east = map_cell_east.halite_amount
-    map_cell_west = map_cells[y][x-1]
+    north = map_cells[y+1][x]
+    north = north.halite_amount
+    south = map_cells[y-1][x]
+    south = south.halite_amount
+    east = map_cells[y][x+1]
+    east = east.halite_amount
+    west = map_cells[y][x-1]
+    west = west.halite_amount
+    if north > south:
+        direction = ['n', north]
+    else:
+        direction = ['s', south]
+    if east > west:
+        direction1 = ['e', east]
+    else:
+        direction1 = ['w', west]
+    if direction[1] > direction1[1]:
+        log.info(direction)
+        return direction[0]
+    else:
+        log.info(direction1)
+        return direction1[0]
 
-def deposit_cargo(ship,shipyard):
+def deposit_cargo(shipyard,ship):
     ship_x = ship.position.x
     ship_y = ship.position.y
     shipyard_x = shipyard.position.x
     shipyard_y = shipyard.position.y
 
     if shipyard_x > ship_x:
-        return 'east'
+        return 'e'
     elif shipyard_x < ship_x:
-        return 'west'
+        return 'w'
     elif shipyard_y > ship_y:
-        return 'north'
+        return 'n'
     elif shipyard_y < ship_y:
-        return 'south'
+        return 's'
     else:
         return "home sweet gnome"
-
 
 
 # This game object contains the initial game state.
@@ -57,14 +71,20 @@ while True:
     game_map = game.game_map
     # A command queue holds all the commands you will run this turn.
     command_queue = []
+    logging.debug('queue')
+    logging.debug(command_queue)
 
     for ship in me.get_ships():
         # For each of your ships, move randomly if the ship is on a low halite location or the ship is full.
         #   Else, collect halite.
-        deposit_cargo(me.shipyard,ship)
+
+        log.debug(ship.halite_amount)
+        if ship.halite_amount > 900:
+            command_queue.append(ship.move(deposit_cargo(me.shipyard,ship)))
+
         if game_map[ship.position].halite_amount < constants.MAX_HALITE / 10 or ship.is_full:
             command_queue.append(
-                ship.move(random.choice(["n", "s", "e", "w"])))
+                ship.move(compass_check(ship.position.x, ship.position.y)))
         else:
             command_queue.append(ship.stay_still())
 
