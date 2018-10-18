@@ -15,15 +15,11 @@ log = logging
 
 
 #Team created function
-#nates big dicks
 def compass_check(x, y):
     game_map = game.game_map
     map_cells = game_map._cells
     map_cell = map_cells[y][x]
     log.debug(map_cell)
-def deposit_cargo(ship):
-    # matts tiny dick
-    log.warning(ship.position)
 
 
 #Team created functions
