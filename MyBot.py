@@ -21,8 +21,6 @@ def compass_check(x, y):
     map_cell_east = map_cells[y][x+1]
     map_cell_west = map_cells[y][x-1]
     log.debug(map_cell_south.halite)
-def deposit_cargo(ship):
-    log.warning(ship.position)
 
 
 #Team created functions
