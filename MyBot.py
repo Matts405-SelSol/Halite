@@ -45,7 +45,6 @@ def deposit_cargo(ship,shipyard):
         return "home sweet home"
 
 
->>>>>>> 3df58bfd869e3358fdaacdf0e3fca09b051e4af6
 
 # This game object contains the initial game state.
 game = hlt.Game()
