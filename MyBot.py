@@ -12,14 +12,19 @@ logging.basicConfig(filename='bot.log', level=logging.DEBUG)
 log = logging
 
 
-
-
 #Team created function
+#nates big dicks
 def compass_check(x, y):
     game_map = game.game_map
     map_cells = game_map._cells
-    map_cell = map_cells[y][x]
-    log.debug(map_cell)
+    map_cell_north = map_cells[y+1][x]
+    map_cell_south = map_cells[y-1][x]
+    map_cell_east = map_cells[y][x+1]
+    map_cell_west = map_cells[y][x-1]
+    log.debug(map_cell_south.halite)
+def deposit_cargo(ship):
+    # matts tiny dick
+    log.warning(ship.position)
 
 
 #Team created functions
