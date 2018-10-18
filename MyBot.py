@@ -6,15 +6,23 @@ from hlt import constants
 
 import random
 import logging
-
 #The bot uses the console to communicate with the server.
 #Do not print anything or it will crash. Use logging('message') to save to log file
 logging.basicConfig(filename='bot.log', level=logging.DEBUG)
 log = logging
 
 
-#Team created functions
+
+
+#Team created function
+#nates big dicks
+def compass_check(x, y):
+    game_map = game.game_map
+    map_cells = game_map._cells
+    map_cell = map_cells[y][x]
+    log.debug(map_cell)
 def deposit_cargo(ship):
+    # matts tiny dick
     log.warning(ship.position)
 
 # This game object contains the initial game state.
@@ -28,9 +36,6 @@ while True:
     # You extract player metadata and the updated map metadata here for convenience.
     me = game.me
     game_map = game.game_map
-    map_cells = game_map._cells
-    map_cell = map_cells[2][3]
-    log.debug(map_cell)
     # A command queue holds all the commands you will run this turn.
     command_queue = []
 
