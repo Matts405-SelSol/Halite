@@ -23,7 +23,6 @@ def compass_check(x, y):
     log.debug(map_cell_south.halite)
 
 
-#Team created functions
 def deposit_cargo(ship,shipyard):
     ship_x = ship.position.x
     ship_y = ship.position.y
