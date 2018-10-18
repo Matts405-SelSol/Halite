@@ -29,7 +29,8 @@ while True:
     me = game.me
     game_map = game.game_map
     map_cells = game_map._cells
-    log.debug(map_cells.__dict__.keys())
+    map_cell = map_cells[2][3]
+    log.debug(map_cell)
     # A command queue holds all the commands you will run this turn.
     command_queue = []
 
