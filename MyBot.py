@@ -7,7 +7,11 @@ from hlt import constants
 import random
 import logging
 
-
+#The bot uses the console to communicate with the server.
+#Do not print anything or it will crash. Use logging('message') to save to log file
+logging.basicConfig(filename='bot.log', level=logging.DEBUG)
+log = logging
+log.debug('test')
 # This game object contains the initial game state.
 game = hlt.Game()
 # Respond with your name.
