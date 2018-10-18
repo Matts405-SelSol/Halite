@@ -17,10 +17,14 @@ def compass_check(x, y):
     game_map = game.game_map
     map_cells = game_map._cells
     map_cell_north = map_cells[y+1][x]
+    map_cell_north = map_cell_north.halite_amount
     map_cell_south = map_cells[y-1][x]
+    map_cell_south = map_cell_south.halite_amount
     map_cell_east = map_cells[y][x+1]
+    map_cell_east = map_cell_east.halite_amount
     map_cell_west = map_cells[y][x-1]
-    log.debug(map_cell_south.halite)
+    map_cell_west = map_cell_west.halite_amount
+
 def deposit_cargo(ship):
     log.warning(ship.position)
 
@@ -41,7 +45,7 @@ def deposit_cargo(ship,shipyard):
     elif shipyard_y < ship_y:
         return 'south'
     else:
-        return "home sweet home"
+        return "home sweet gnome"
 
 
 
@@ -53,6 +57,7 @@ game.ready("Legion")
 while True:
     # Get the latest game state.
     game.update_frame()
+    compass_check(7,8)
     # You extract player metadata and the updated map metadata here for convenience.
     me = game.me
     game_map = game.game_map
