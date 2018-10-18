@@ -14,8 +14,22 @@ log = logging
 
 
 #Team created functions
-def deposit_cargo(ship):
-    log.warning(type(ship.position))
+def deposit_cargo(ship,shipyard):
+    ship_x = ship.position.x
+    ship_y = ship.position.y
+    shipyard_x = shipyard.position.x
+    shipyard_y = shipyard.position.y
+
+    if shipyard_x > ship_x:
+        return 'east'
+    elif shipyard_x < ship_x:
+        return 'west'
+    elif shipyard_y > ship_y:
+        return 'north'
+    elif shipyard_y < ship_y:
+        return 'south'
+    else:
+        return "home sweet home"
 
 
 
