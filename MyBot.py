@@ -33,7 +33,6 @@ def deposit_cargo(ship):
 >>>>>>> 9129ca8148f8d7b4c9764e53c60c57c34f266107
 
 
-#Team created functions
 def deposit_cargo(ship,shipyard):
     ship_x = ship.position.x
     ship_y = ship.position.y
