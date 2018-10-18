@@ -15,7 +15,9 @@ log = logging
 
 #Team created functions
 def deposit_cargo(ship):
-    log.warning(ship.position)
+    log.warning(type(ship.position))
+
+
 
 # This game object contains the initial game state.
 game = hlt.Game()
