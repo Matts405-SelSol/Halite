@@ -11,7 +11,12 @@ import logging
 #Do not print anything or it will crash. Use logging('message') to save to log file
 logging.basicConfig(filename='bot.log', level=logging.DEBUG)
 log = logging
-log.debug('test')
+
+
+#Team created functions
+def deposit_cargo(ship):
+    log.warning(ship.position)
+
 # This game object contains the initial game state.
 game = hlt.Game()
 # Respond with your name.
@@ -30,6 +35,7 @@ while True:
     for ship in me.get_ships():
         # For each of your ships, move randomly if the ship is on a low halite location or the ship is full.
         #   Else, collect halite.
+        deposit_cargo(ship)
         if game_map[ship.position].halite_amount < constants.MAX_HALITE / 10 or ship.is_full:
             command_queue.append(
                 ship.move(random.choice(["n", "s", "e", "w"])))
